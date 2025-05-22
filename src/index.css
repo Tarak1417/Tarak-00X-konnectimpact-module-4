@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+
+:root {
+  --impact-green: #4CAF50;
+  --trust-blue: #2196F3;
+  --charcoal-text: #333333;
+  --accent-yellow: #FFC107;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--charcoal-text);
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
