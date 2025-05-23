@@ -6,7 +6,7 @@ const Sidebar = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-white p-2 border border-gray-300 rounded-lg shadow-lg flex space-x-2 text-sm">
+    <div className="fixed bottom-1 left-1/2 transform -translate-x-1/2 z-50 bg-white p-2 border border-gray-300 rounded-lg shadow-lg flex space-x-2 text-sm">
       
       <div className="flex items-center">
         <input

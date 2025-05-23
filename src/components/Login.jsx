@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     if (email && password) {
       login(email, password); // Save to context + localStorage
-      navigate("/home");      // Redirect
+      navigate("/create");      // Redirect
     } else {
       alert("Please fill in both fields");
     }
