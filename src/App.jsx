@@ -19,13 +19,13 @@ const AppRoutes = () => {
     <>
       {!hideSidebar && <Sidebar />}
       <Routes>
-         <Route
+        <Route
           path="/"
           element={!adminEmail ? <Login /> : <Navigate to="/create" />}
         />
         <Route
-          path="/create"
-          element={adminEmail ? <CreateCampagin /> : <Navigate to="/" />}
+          path="/home"
+          element={adminEmail ? <Home /> : <Navigate to="/" />}
         />
         <Route path="/create" element={<CreateCampagin />} />
         <Route path="/partner" element={<ParternerCampagin />} />
