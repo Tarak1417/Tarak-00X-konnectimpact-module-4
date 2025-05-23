@@ -1,16 +1,80 @@
-// components/Sidebar.jsx
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   return (
-    <div className="w-64 bg-gray-800 text-white h-full p-6 space-y-4">
-      <h2 className="text-xl font-bold mb-4">Dashboard</h2>
-      <ul className="space-y-2">
-        <li className="hover:text-indigo-400 cursor-pointer">Home</li>
-        <li className="hover:text-indigo-400 cursor-pointer">Reports</li>
-        <li className="hover:text-indigo-400 cursor-pointer">Analytics</li>
-        <li className="hover:text-indigo-400 cursor-pointer">Settings</li>
-      </ul>
+    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 bg-white p-2 border border-gray-300 rounded-lg shadow-lg flex space-x-2 text-sm">
+      
+      <div className="flex items-center">
+        <input
+          type="radio"
+          name="options"
+          id="dashboard"
+          className="hidden peer"
+          checked={pathname === "/home"}
+          onChange={() => navigate("/home")}
+        />
+        <label
+          htmlFor="dashboard"
+          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
+        >
+          Dashboard
+        </label>
+      </div>
+
+      <div className="flex items-center">
+        <input
+          type="radio"
+          name="options"
+          id="html"
+          className="hidden peer"
+          checked={pathname === "/create"}
+          onChange={() => navigate("/create")}
+        />
+        <label
+          htmlFor="html"
+          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
+        >
+          Create Campaign
+        </label>
+      </div>
+
+      <div className="flex items-center">
+        <input
+          type="radio"
+          name="options"
+          id="css"
+          className="hidden peer"
+          onChange={() => navigate("/partner")}
+          checked={pathname === "/partner"}
+        />
+        <label
+          htmlFor="css"
+          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
+        >
+          Partner Campaign
+        </label>
+      </div>
+
+      <div className="flex items-center">
+        <input
+          type="radio"
+          name="options"
+          id="react"
+          className="hidden peer"
+          onChange={() => navigate("/leaderboard")}
+          checked={pathname === "/leaderboard"}
+        />
+        <label
+          htmlFor="react"
+          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
+        >
+          Leaderboard
+        </label>
+      </div>
     </div>
   );
 };
