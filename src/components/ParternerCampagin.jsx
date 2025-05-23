@@ -1,8 +1,10 @@
 import React from "react";
 import { useAppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
 
 const ParternerCampagin = () => {
   const { campaigns } = useAppContext();
+  const navigate=useNavigate()
 
   const getStatus = (endDate) => {
     return new Date(endDate) >= new Date() ? "Active" : "Completed";
@@ -44,9 +46,20 @@ const ParternerCampagin = () => {
                 {campaign.startDate} to {campaign.endDate}
               </p>
             </div>
+
+            
           ))}
+          
         </div>
+        
       )}
+
+        <button
+            onClick={() => navigate("/create")}
+            className="bg-blue-600 text-white px-4  mt-10 py-2 rounded cursor-pointer"
+          >
+            Create new
+          </button>
     </div>
   );
 };
