@@ -5,76 +5,33 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  const tabs = [
+    { id: "dashboard", label: "Dashboard", path: "/home" },
+    { id: "create", label: "Create Campaign", path: "/create" },
+    { id: "partner", label: "Partner Campaign", path: "/partner" },
+    { id: "leaderboard", label: "Leaderboard", path: "/leaderboard" },
+  ];
+
   return (
-    <div className="fixed bottom-1 left-1/2 transform -translate-x-1/2 z-50 bg-white p-2 border border-gray-300 rounded-lg shadow-lg flex space-x-2 text-sm">
-      
-      <div className="flex items-center">
-        <input
-          type="radio"
-          name="options"
-          id="dashboard"
-          className="hidden peer"
-          checked={pathname === "/home"}
-          onChange={() => navigate("/home")}
-        />
-        <label
-          htmlFor="dashboard"
-          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
-        >
-          Dashboard
-        </label>
-      </div>
-
-      <div className="flex items-center">
-        <input
-          type="radio"
-          name="options"
-          id="html"
-          className="hidden peer"
-          checked={pathname === "/create"}
-          onChange={() => navigate("/create")}
-        />
-        <label
-          htmlFor="html"
-          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
-        >
-          Create Campaign
-        </label>
-      </div>
-
-      <div className="flex items-center">
-        <input
-          type="radio"
-          name="options"
-          id="css"
-          className="hidden peer"
-          onChange={() => navigate("/partner")}
-          checked={pathname === "/partner"}
-        />
-        <label
-          htmlFor="css"
-          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
-        >
-          Partner Campaign
-        </label>
-      </div>
-
-      <div className="flex items-center">
-        <input
-          type="radio"
-          name="options"
-          id="react"
-          className="hidden peer"
-          onChange={() => navigate("/leaderboard")}
-          checked={pathname === "/leaderboard"}
-        />
-        <label
-          htmlFor="react"
-          className="cursor-pointer rounded py-2 px-4 text-gray-500 transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
-        >
-          Leaderboard
-        </label>
-      </div>
+    <div className="fixed bottom-2 left-1/2 transform -translate-x-1/2 z-50 bg-white p-2 border border-gray-300 rounded-xl shadow-md flex flex-wrap justify-center gap-2 text-xs sm:text-sm md:text-base w-[90%] sm:w-auto overflow-x-auto">
+      {tabs.map((tab) => (
+        <div key={tab.id} className="flex items-center">
+          <input
+            type="radio"
+            name="options"
+            id={tab.id}
+            className="hidden peer"
+            checked={pathname === tab.path}
+            onChange={() => navigate(tab.path)}
+          />
+          <label
+            htmlFor={tab.id}
+            className="cursor-pointer rounded-lg py-2 px-3 sm:px-4 text-gray-500 whitespace-nowrap transition-colors duration-200 peer-checked:bg-indigo-600 peer-checked:text-white"
+          >
+            {tab.label}
+          </label>
+        </div>
+      ))}
     </div>
   );
 };

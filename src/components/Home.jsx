@@ -3,38 +3,45 @@ import { useAppContext } from "../context/AppContext";
 import BarChartComponent from "./BarChartComponent";
 import { useNavigate } from "react-router-dom";
 
-
 const Home = () => {
   const { adminEmail, logout } = useAppContext();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <div>
-    
+    <div className="w-full px-4">
+      {/* Top Bar */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 p-4 sm:p-8 bg-white shadow-md rounded-md">
+        {/* Brand Name */}
+        <h1 className="text-2xl sm:text-xl font-bold text-blue-600">
+          Konnect
+        </h1>
 
-      <div className=" flex flex-row justify-between items-center p-8">
-<h1 className="text-xl font-bold" style={{ color: "#2196F3" }}>
-  Konnect
-</h1>
- 
-        <div className="flex items-center ">
-           <button
+        {/* Controls */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
+          <button
             onClick={() => navigate("/create")}
-            className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer"
+            className="bg-blue-600 text-white px-4 py-2 rounded w-full sm:w-auto"
           >
             Create new
           </button>
-        <h1 className="text-sm font-bold text-charcoalText ml-5">
-         {adminEmail}
-        </h1>
-        <button onClick={logout} className="ml-5 px-4 py-2  text-white rounded" style={{background:"#4CAF50"}}>
-          Logout
-        </button>
+
+          <h1 className="text-sm font-bold text-gray-700 break-words">
+            {adminEmail}
+          </h1>
+
+          <button
+            onClick={logout}
+            className="bg-green-600 text-white px-4 py-2 rounded w-full sm:w-auto"
+          >
+            Logout
+          </button>
         </div>
       </div>
 
-     
-      <BarChartComponent />
+      {/* Bar Chart */}
+      <div className="mt-6">
+        <BarChartComponent />
+      </div>
     </div>
   );
 };
